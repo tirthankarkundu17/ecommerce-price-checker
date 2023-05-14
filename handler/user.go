@@ -67,7 +67,7 @@ func (server *Server) Register(w http.ResponseWriter, r *http.Request) {
 	}
 	user.Prepare()
 
-	userCreated, err := user.SaveUser(server.DB)
+	_, err = user.SaveUser(server.DB)
 
 	if err != nil {
 
@@ -76,5 +76,8 @@ func (server *Server) Register(w http.ResponseWriter, r *http.Request) {
 	}
 	w.WriteHeader(http.StatusCreated)
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(userCreated)
+	json.NewEncoder(w).Encode(map[string]string{
+		"status":  "Success",
+		"message": "User created successfully",
+	})
 }

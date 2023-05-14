@@ -1,0 +1,13 @@
+name:
+    selector: '#productTitle'
+    type: Text
+price:
+    selector: 'span.a-price:nth-of-type(1) span.a-offscreen'
+    type: Text
+images:
+    selector: '.imgTagWrapper img'
+    type: Attribute
+    attribute: src
+rating:
+    selector: '#averageCustomerReviews_feature_div > #averageCustomerReviews > span'
+    type: Text
